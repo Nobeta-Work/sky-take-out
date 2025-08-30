@@ -13,3 +13,7 @@ mybatis:
   type-aliases-package: com.sky.entity
   configuration:
     map-underscore-to-camel-case: true
+
+jwt:
+  secret: 123456
+  expiration: 86400
