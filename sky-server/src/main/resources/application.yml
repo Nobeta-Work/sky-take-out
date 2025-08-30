@@ -15,5 +15,7 @@ mybatis:
     map-underscore-to-camel-case: true
 
 jwt:
-  secret: 123456
-  expiration: 86400
+  #管理端
+  admin-secret-key: 123456
+  admin-ttl: 86400
+  admin-token-name: token

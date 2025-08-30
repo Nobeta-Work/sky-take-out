@@ -36,6 +36,7 @@
 		<java.version>17</java.version>
 		<mybatis.version>3.0.5</mybatis.version>
 		<mysql.version>9.4.0</mysql.version>
+		<jjwt.version>0.12.3</jjwt.version>
 	</properties>
 	<!-- 统一管理依赖版本 -->
 	<dependencyManagement>
@@ -107,18 +108,18 @@
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-api</artifactId>
-			<version>0.12.3</version>
+			<version>${jjwt.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-impl</artifactId>
-			<version>0.12.3</version>
+			<version>${jjwt.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-jackson</artifactId>
-			<version>0.12.3</version>
+			<version>${jjwt.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 

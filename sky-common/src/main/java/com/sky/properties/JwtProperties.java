@@ -3,23 +3,25 @@ package com.sky.properties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import lombok.Data;
+
 @Component
+@Data
 @ConfigurationProperties(prefix = "jwt")
 public class JwtProperties {
-    private String secret;
-    private Long expiration;
-    // 访问方法
-    public String getSecret() {
-        return secret;
-    }
-    public void setSecret(String secret) {
-        this.secret = secret;
-    }
-    public Long getExpiration() {
-        return expiration;
-    }
-    public void setExpiration(Long expiration) {
-        this.expiration = expiration;
-    }
+    
+    /**
+     * 管理端员工生成jwt令牌相关配置
+     */
+    private String adminSecretKey;
+    private long adminTtl;
+    private String adminTokenName;
+
+    /**
+     * 用户端微信用户生成jwt令牌相关配置
+     */
+    private String userSecretKey;
+    private long userTtl;
+    private String userTokenName;
     
 }
