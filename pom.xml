@@ -11,6 +11,12 @@
 	<groupId>com.sky</groupId>
 	<artifactId>sky-take-out</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>sky-common</module>
+		<module>sky-pojo</module>
+		<module>sky-server</module>
+	</modules>
 	<name>sky-take-out</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
