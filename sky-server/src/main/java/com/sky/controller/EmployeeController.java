@@ -21,7 +21,7 @@ import com.sky.vo.EmployeeLoginVO;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping("/admin/employee")
+@RequestMapping
 @Slf4j  // 日志
 public class EmployeeController {
     @Autowired
@@ -44,7 +44,10 @@ public class EmployeeController {
         // 登录成功，生成jwt令牌
         Map<String, Object> claims = new HashMap<>();
         claims.put(JwtClaimsConstant.EMP_ID, employee.getId());
-        String token = JwtUtils.createJwt(jwtProperties.getAdminSecretKey(), jwtProperties.getAdminTtl(), claims);
+        String token = JwtUtils.createJwt(
+                jwtProperties.getAdminSecretKey(),
+                jwtProperties.getAdminTtl(),
+                claims);
 
         EmployeeLoginVO employeeLoginVO = EmployeeLoginVO.builder()
                 .id(employee.getId())

@@ -13,7 +13,7 @@ public interface EmployeeMapper {
      * @param username
      * @return
      */
-    @Select("select * from employee where username = ${username}")
+    @Select("select * from employee where username = #{username}")
     Employee getByUsername(String username);
 
 }

@@ -4,6 +4,8 @@ package com.sky.service.impl;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.util.DigestUtils;
 
 import com.sky.constant.MessageConstant;
 import com.sky.constant.StatusConstant;
@@ -13,6 +15,10 @@ import com.sky.exception.PasswordErrorException;
 import com.sky.mapper.EmployeeMapper;
 import com.sky.service.EmployeeService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Service
+@Slf4j
 public class EmployeeServiceImpl implements EmployeeService{
 
     @Autowired
@@ -36,8 +42,10 @@ public class EmployeeServiceImpl implements EmployeeService{
             // 账号不存在
             throw new com.sky.exception.AccountNotFoundException(MessageConstant.ACCOUNT_NOT_FOUND);
         }
-        // TODO 密码加密
+        // md5密码加密
+        password = DigestUtils.md5DigestAsHex(password.getBytes());
         if (!password.equals(employee.getPassword())) {
+            log.info("密码错误");
             // 密码错误
             throw new PasswordErrorException(MessageConstant.PASSWORD_ERROR);
         }

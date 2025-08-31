@@ -16,6 +16,6 @@ mybatis:
 
 jwt:
   #管理端
-  admin-secret-key: 123456
+  admin-secret-key: thisIsASecure256BitKeyForHmacSha256Algorithm
   admin-ttl: 86400
   admin-token-name: token
