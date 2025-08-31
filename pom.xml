@@ -37,6 +37,7 @@
 		<mybatis.version>3.0.5</mybatis.version>
 		<mysql.version>9.4.0</mysql.version>
 		<jjwt.version>0.12.3</jjwt.version>
+		<pagehelper.version>2.1.1</pagehelper.version>
 	</properties>
 	<!-- 统一管理依赖版本 -->
 	<dependencyManagement>
@@ -70,7 +71,12 @@
 				<artifactId>mybatis-spring-boot-starter</artifactId>
 				<version>${mybatis.version}</version>
 			</dependency>
-
+			<!-- PageHelper 依赖 -->
+			<dependency>
+				<groupId>com.github.pagehelper</groupId>
+				<artifactId>pagehelper-spring-boot-starter</artifactId>
+				<version>${pagehelper.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<!-- 全局依赖 -->

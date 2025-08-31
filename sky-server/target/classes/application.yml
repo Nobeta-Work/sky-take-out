@@ -19,3 +19,10 @@ jwt:
   admin-secret-key: thisIsASecure256BitKeyForHmacSha256Algorithm
   admin-ttl: 86400
   admin-token-name: token
+
+# PageHelper
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  defaultCount: true # 分页插件默认参数支持 default-count 形式，自定义扩展的参数，必须大小写一致
+  support-methods-arguments: true
