@@ -17,8 +17,8 @@ mybatis:
 jwt:
   #管理端
   admin-secret-key: thisIsASecure256BitKeyForHmacSha256Algorithm
-  admin-ttl: 86400
-  admin-token-name: token
+  admin-ttl: 86400000 # 1天
+  admin-token-name: Authorization
 
 # PageHelper
 pagehelper:
