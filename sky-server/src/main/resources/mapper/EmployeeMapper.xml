@@ -21,4 +21,21 @@
                 values
                 (#{name}, #{username}, #{password}, #{phone}, #{sex}, #{idNumber}, #{createTime}, #{updateTime}, #{createUser}, #{updateUser})
         </insert>
+
+        <!-- update --> 
+        <update id="update" parameterType="Employee">
+                update employee
+                <set>
+                        <if test="name !=null and name.trim()!=''">name=#{name},</if>
+                        <if test="username!=null and username.trim()!=''">username=#{username},</if>
+                        <if test="password!=null and password.trim()!=''">password=#{password},</if>
+                        <if test="phone!=null and phone.trim()!=''">phone=#{phone},</if>
+                        <if test="sex!=null and sex.trim()!=''">sex=#{sex},</if>
+                        <if test="idNumber!=null and idNumber.trim()!=''">id_number=#{idNumber},</if>
+                        <if test="updateTime!=null">update_time=#{updateTime},</if>
+                        <if test="updateUser!=null and updateUser.trim()!=''">update_user=#{updateUser},</if>
+                        <if test="status!=null">status=#{status}</if>
+                </set>
+                where id=#{id}
+        </update>
 </mapper>

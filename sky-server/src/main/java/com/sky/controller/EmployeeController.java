@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -94,6 +95,23 @@ public class EmployeeController {
     public Result<Employee> addEmployee(@RequestBody EmployeeDTO employeeDTO ) {
         log.info("添加员工：{}", employeeDTO);
         employeeService.addEmployee(employeeDTO);
+        return Result.success();
+    }
+
+    /**
+     * 启用禁用员工账号
+     * @param status
+     * @param id
+     * @return
+     */
+    @Operation(
+        summary = "启用禁用员工账号",
+        description = "根据id启用禁用员工账号"
+    )
+    @PostMapping("/admin/employee/status/{status}")
+    public Result<Void> updateStatus(@PathVariable Integer status, Long id) {
+        log.info("启用禁用员工账号:{},{}", status, id);
+        employeeService.updateStatus(status, id);
         return Result.success();
     }
 }

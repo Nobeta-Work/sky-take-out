@@ -4,12 +4,14 @@ import java.time.LocalDateTime;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Schema(description = "员工实体类")
 public class Employee {
     @Schema(description = "主键", example = "1", requiredMode = Schema.RequiredMode.NOT_REQUIRED, format = "int64")
