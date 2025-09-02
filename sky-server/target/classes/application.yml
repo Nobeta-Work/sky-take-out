@@ -2,25 +2,29 @@ server:
   port: 8080
 
 spring:
+  profiles:
+    active: dev
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/sky_take_out?useSSL=false&serverTimezone=UTC&characterEncoding=utf8
     username: root
     password: 123456
 
+# # Mybatis 配置
 mybatis:
   mapper-locations: mapper/**/*.xml
   type-aliases-package: com.sky.entity
   configuration:
     map-underscore-to-camel-case: true
 
+# # JWT令牌配置
 jwt:
   #管理端
   admin-secret-key: thisIsASecure256BitKeyForHmacSha256Algorithm
   admin-ttl: 86400000 # 1天
   admin-token-name: Authorization
 
-# PageHelper
+# # PageHelper
 pagehelper:
   helper-dialect: mysql
   reasonable: true

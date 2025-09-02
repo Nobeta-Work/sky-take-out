@@ -38,6 +38,7 @@
 		<mysql.version>9.4.0</mysql.version>
 		<jjwt.version>0.12.3</jjwt.version>
 		<pagehelper.version>2.1.1</pagehelper.version>
+		<swagger.version>2.3.0</swagger.version>
 	</properties>
 	<!-- 统一管理依赖版本 -->
 	<dependencyManagement>
@@ -127,6 +128,18 @@
 			<artifactId>jjwt-jackson</artifactId>
 			<version>${jjwt.version}</version>
 			<scope>runtime</scope>
+		</dependency>
+		<!-- Swagger3 依赖 -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>${swagger.version}</version>
+		</dependency>
+		<!-- 解决Bean Validation问题 -->
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>8.0.0.Final</version>
 		</dependency>
 
 	</dependencies>

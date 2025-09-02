@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.sky.interceptor.JwtTokenAdminInterceptor;
 
@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Configuration
 @Slf4j
-public class WebMvcConfiguration extends WebMvcConfigurationSupport {
+public class WebMvcConfiguration implements WebMvcConfigurer {
     
     @Autowired
     private JwtTokenAdminInterceptor jwtTokenAdminInterceptor;
@@ -23,18 +23,17 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
      * @param registry
      */
     @Override
-    protected void addInterceptors(InterceptorRegistry registry) {
+    public void addInterceptors(InterceptorRegistry registry) {
         log.info("开始注册自定义拦截器...");
         registry.addInterceptor((jwtTokenAdminInterceptor))
-                .addPathPatterns("/**")
-                .excludePathPatterns("/login");
+                .addPathPatterns("/admin/**");
     }
 
     /**
      * 配置CORS跨域
      */
     @Override
-    protected void addCorsMappings(CorsRegistry registry) {
+    public void addCorsMappings(CorsRegistry registry) {
         // 允许跨域访问的路径
         registry.addMapping("/**")
                 // 允许跨域访问的源（前端应用地址）

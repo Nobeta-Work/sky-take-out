@@ -22,11 +22,17 @@ import com.sky.service.EmployeeService;
 import com.sky.utils.JwtUtils;
 import com.sky.vo.EmployeeLoginVO;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping
 @Slf4j  // 日志
+@Tag(
+    name = "EmployeeControllerAPI",
+    description = "员工管理接口"
+)
 public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
@@ -39,6 +45,7 @@ public class EmployeeController {
      * @param employeeLoginDTO
      * @return
      */
+    @Operation(summary = "员工登录", description = "根据登录账户返回登录结果")
     @PostMapping("/login")
     public Result<EmployeeLoginVO> login(@RequestBody EmployeeLoginDTO employeeLoginDTO) {
         log.info("员工登录：{}", employeeLoginDTO);
@@ -65,6 +72,10 @@ public class EmployeeController {
     /**
      * 分页查询
      */
+    @Operation(
+        summary = "分页查询",
+        description = "根据查询条件分页查询员工信息"
+    )
     @GetMapping("/admin/employee/page")
     public Result<PageResult<Employee>> page(EmployeePageQueryDTO employeePageQueryDTO) {
         log.info("分页查询：{}", employeePageQueryDTO);
@@ -75,6 +86,10 @@ public class EmployeeController {
     /**
      * 添加员工
      */
+    @Operation(
+        summary = "添加员工",
+        description = "添加员工信息"
+    )
     @PostMapping("/admin/employee")
     public Result<Employee> addEmployee(@RequestBody EmployeeDTO employeeDTO ) {
         log.info("添加员工：{}", employeeDTO);
