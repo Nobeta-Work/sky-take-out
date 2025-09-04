@@ -2,8 +2,10 @@ package com.sky.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @Schema(description = "分类查询条件类")
 public class CategoryDTO {
     @Schema(description = "主键", example = "1", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
